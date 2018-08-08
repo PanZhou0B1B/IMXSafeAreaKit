@@ -12,9 +12,8 @@ Pod::Spec.new do |s|
   s.version      = "1.0.0"
   s.summary      = "IMXSafeAreaKit:A capsulation of IMXSafeAreaKit."
   s.license      = { :type => "MIT", :file => "LICENSE" }
-
-  s.description  = <<-DESC
-                   DESC
+  s.homepage     = "https://github.com/PanZhow/IMXSafeAreaKit.git"
+#s.description  = <<-DESC
 
   s.source       = { :git => "https://github.com/PanZhow/IMXSafeAreaKit.git", :tag => "#{s.version}" }
   s.author             = { "zhoupanpan" => "2331838272@qq.com" }

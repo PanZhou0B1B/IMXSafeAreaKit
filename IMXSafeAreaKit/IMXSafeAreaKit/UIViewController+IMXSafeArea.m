@@ -37,9 +37,11 @@
  @param insets safeArea
  */
 - (void)addCustomSafeArea:(UIEdgeInsets)insets{
-    self.additionalSafeAreaInsets = insets;
-    //refresh cache: no test
-    [self imx_safeArea2Cache];
+    if(@available(iOS 11.0, *)){
+       self.additionalSafeAreaInsets = insets;
+        //refresh cache: no test
+        [self imx_safeArea2Cache];
+    }    
 }
 - (UIEdgeInsets)imx_safeAreaFromCache{
     NSString *insetsString = [[NSUserDefaults standardUserDefaults] objectForKey:IMX_SAFEAREA_PRECACHED];
