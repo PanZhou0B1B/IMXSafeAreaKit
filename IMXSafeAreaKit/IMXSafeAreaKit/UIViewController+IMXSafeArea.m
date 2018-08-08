@@ -8,7 +8,9 @@
 
 #import "UIViewController+IMXSafeArea.h"
 #import "UIView+IMXSafeArea.h"
-#import "IMXUIKitExtUtil.h"
+
+#define IMX_SA_SCREEN_HEIGHT_UIKIT                              [[UIScreen mainScreen] bounds].size.height
+#define IMX_SA_SCREEN_WIDTH_UIKIT                                [[UIScreen mainScreen] bounds].size.width
 
 #define IMX_SAFEAREA_PRECACHED @"imx_safearea_pre_cached"
 
@@ -46,18 +48,18 @@
 }
 - (CGRect)imx_safeContent{
     UIEdgeInsets insets = [self.view imx_safeArea];
-    CGFloat x = self.view.imxWidth - insets.left;
-    CGFloat y = self.view.imxHeight - insets.top;
-    CGFloat width = self.view.imxWidth - insets.left - insets.right;
-    CGFloat height = self.view.imxHeight - insets.top - insets.bottom;
+    CGFloat x = self.view.frame.size.width - insets.left;
+    CGFloat y = self.view.frame.size.height - insets.top;
+    CGFloat width = self.view.frame.size.width - insets.left - insets.right;
+    CGFloat height = self.view.frame.size.height - insets.top - insets.bottom;
     return CGRectMake(x, y, width, height);
 }
 - (CGRect)imx_safeContentFromCache{
     UIEdgeInsets insets = [self imx_safeAreaFromCache];
-    CGFloat x = IMX_SCREEN_WIDTH_UIKIT - insets.left;
-    CGFloat y = IMX_SCREEN_HEIGHT_UIKIT - insets.top;
-    CGFloat width = IMX_SCREEN_WIDTH_UIKIT - insets.left - insets.right;
-    CGFloat height = IMX_SCREEN_HEIGHT_UIKIT - insets.top - insets.bottom;
+    CGFloat x = IMX_SA_SCREEN_WIDTH_UIKIT - insets.left;
+    CGFloat y = IMX_SA_SCREEN_HEIGHT_UIKIT - insets.top;
+    CGFloat width = IMX_SA_SCREEN_WIDTH_UIKIT - insets.left - insets.right;
+    CGFloat height = IMX_SA_SCREEN_HEIGHT_UIKIT - insets.top - insets.bottom;
     return CGRectMake(x, y, width, height);
 }
 - (CGFloat)imx_safeTopFromCache{
